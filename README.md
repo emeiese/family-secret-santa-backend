@@ -1,0 +1,1 @@
+This repo is for caculating the assignation problem for a FAMILY secret santa. In this case, the complexity relies on the possible restrictions you can have. For example: you can't assign same direct family members to another direct member, or sometimes you want to assign based on the age of the participants.
