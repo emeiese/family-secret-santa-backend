@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 
 from pulp import LpProblem, lpSum, LpVariable, LpMinimize, LpStatus, value
-from random import shuffle
 
 
 def solve_fss(family_dict: dict, people_list: list, people_cost: pd.DataFrame, possible_pairs: list):
