@@ -4,16 +4,24 @@ import pandas as pd
 from pulp import LpProblem, lpSum, LpVariable, LpMinimize, LpStatus, value
 
 
-def solve_fss(family_dict: dict, people_list: list, people_cost: pd.DataFrame, possible_pairs: list):
+def solve_fss(family_dict: dict, people_cost: pd.DataFrame):
     """
     Solves the family secret santa problem (basically, a secret santa with restrictions)
 
     Args:
-        family_dict (dict): _description_
-        people_list (list): _description_
-        people_cost (pd.DataFrame): _description_
-        possible_pairs (list): 
+        family_dict (dict): dictionary with the family names as keys and a list of their members as
+                            values: dict[name] = [member 1, member 2]
+        people_cost (pd.DataFrame): a datafrane with with the social costs of gift-giving
+                                    between family members.
     """
+    people_list = list(people_cost.index)
+    # Possible pairs for the family secret santa, where the first coordinate is santa (who gifts)
+    # and the second is the child (who recieves)
+    possible_pairs = []
+    for i in people_list:
+        for j in people_list:
+            possible_pairs.append((i, j))
+
     # Set Problem:
     prob = LpProblem("wsp-problem", LpMinimize)
 

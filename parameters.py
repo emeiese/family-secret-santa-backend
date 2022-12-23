@@ -11,10 +11,3 @@ people_list = []
 for k, v in family_dict.items():
     people_list += v
 people_list = sorted(set(people_list))
-
-
-# Possible pairs for the family secret santa, where the first coordinate is santa (who gifts) and the second is the child (who recieves)
-possible_pairs = []
-for i in people_list:
-    for j in people_list:
-        possible_pairs.append((i, j))
